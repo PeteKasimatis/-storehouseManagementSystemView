@@ -1,0 +1,63 @@
+{
+  "sms.menu.storehouses": "Αποθήκες",
+  "sms.menu.products": "Προϊόντα",
+  "sms.menu.import_receipts": "Δελτία εισαγωγής",
+  "sms.menu.export_receipts": "Δελτία εξαγωγής",
+  "sms.menu.stocκ": "Αποθέματα",
+  "sms.menu.stockAll": "Όλα τα αποθέματα",
+  "sms.menu.stockByShelf": "Αποθέματα ανά ράφι",
+  "sms.menu.stockByProduct": "Αποθέματα προϊόντος",
+  "sms.menu.stockByDate": "Αποθέματα ανά ημερομηνία",
+  "sms.menu.create": "Δημιουργία",
+  "sms.menu.show_all": "Εμφάνιση όλων",
+
+  "sms.general.yes": "Ναι",
+  "sms.general.no": "Όχι",
+  "sms.general.index": "Α/Α",
+  "sms.general.id": "ID",
+  "sms.general.description": "Περιγραφή",
+  "sms.general.date": "Ημερομηνία",
+  "sms.general.recipient": "Παραλαβών",
+  "sms.general.reason": "Αιτιολογία Έκδοσης",
+  "sms.general.sender": "Παραδούς",
+  "sms.general.clear": "Καθαρισμός",
+  "sms.general.create": "Δημιουργία",
+  "sms.general.save": "Αποθήκευση",
+  "sms.general.delete": "Διαγραφή",
+  "sms.general.details": "Λεπτομέρειες",
+
+  "sms.storehouses.list": "Κατάλογος αποθηκών",
+  "sms.storehouses.new": "Νέα Αποθήκη",
+  "sms.storehouses.edit": "Επεξεργασία Αποθήκης",
+  "sms.storehouses.name": "Ονομασία Αποθήκης",
+  "sms.storehouses.addShelf": "Προσθήκη Ραφιού",
+  "sms.storehouses.identifier": "Περιγραφή Ραφιού",
+
+  "sms.shelves.details": "Λεπτομέρειες Ραφιού",
+  "sms.shelves.identifier": "Περιγραφή Ραφιού",
+
+  "sms.products.list": "Κατάλογος προϊόντων",
+  "sms.products.new": "Νέο Προϊόν",
+  "sms.products.edit": "Επεξεργασία Προϊόντος",
+  "sms.products.description": "Περιγραφή",
+  "sms.products.barcode": "Κωδικός",
+  "sms.products.units": "Μονάδα μέτρησης",
+
+
+  "sms.export-receipts.list": "Κατάλογος Δελτίων Εξαγωγής",
+  "sms.import-receipts.list": "Κατάλογος Δελτίων Εισαγωγής",
+
+  "sms.input.search.placeholder": "Αναζήτηση",
+  "sms.button.details": "Λεπτομέρειες",
+
+  "sms.error": "Παρουσιάστηκε σφάλμα!",
+
+  "sms.message.saveSuccess": "Επιτυχής αποθήκευση",
+  "sms.message.deleteSuccess": "Επιτυχής διαγραφή",
+
+  "sms.confirm.message" : "Είστε σίγουροι για τη διαγραφή;",
+  "sms.confirm.header" : "Επιβεβαίωση",
+
+  "language.english": "English",
+  "language.greek": "Ελληνικά"
+}

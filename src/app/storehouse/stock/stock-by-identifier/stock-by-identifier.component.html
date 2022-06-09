@@ -1,0 +1,24 @@
+<div style=" text-align: center;">
+  <h5 style="margin: 0.5em 0 1em 0">Λίστα αποθεμάτων σε ράφι</h5>
+</div>
+<div>
+  <form [formGroup]="stockByIdentifierForm">
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-3">
+        <label>Αναγνωριστικό ραφιού</label>
+      </div>
+      <div class="p-field p-col-4">
+        <p-dropdown formControlName="identifier" [options]="identifierList"
+          placeholder="Επιλέξτε ράφι"></p-dropdown>
+        <app-print-error [control]='stockByIdentifierForm.controls.identifier'></app-print-error>
+      </div>  
+      <div class="p-field p-col-3">
+      </div>
+      <div class="p-field p-col-2">
+        <button pButton label="Αναζήτηση" type="button" (click)="onGetStock()"
+          [disabled]="stockByIdentifierForm.controls.identifier.value == '' "></button>
+      </div>
+    </div>
+  </form>
+</div>
+<router-outlet></router-outlet>

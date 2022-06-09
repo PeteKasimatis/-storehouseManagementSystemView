@@ -1,0 +1,27 @@
+<form [formGroup]="shelfDetailsForm" (ngSubmit)="onUpdateShelf()">
+  <div class="pkcard">
+    <div>
+      <div class="field">
+        <h2>{{('sms.shelves.details')| translate}}</h2>
+        <label for="identifier">{{'sms.shelves.identifier' | translate}}</label>
+        <input id="identifier" pInputText class="inputfield" class="w-full md:w-5 border-round flex"
+          formControlName="identifier">
+        <app-print-error [control]='shelfDetailsForm.controls.storehouseId'></app-print-error>
+        <label for="storehouseId">{{'sms.storehouses.name' | translate}}</label>
+        <input id="storehouseId" pInputText class="inputfield" class="w-full md:w-5 border-round flex"
+          formControlName="storehouseId">
+      </div>
+    </div>
+  </div>
+  <div class="card mt-2">
+    <div class="flex flex-row flex-wrap justify-content-start">
+      <button pButton class="p-button-primary mr-1" type="submit" label="{{'sms.general.save' | translate}}" [disabled]="!shelfDetailsForm.valid || updateDisabled">
+      </button>
+      <button pButton class="p-button-danger" type="button" label="{{'sms.general.delete' | translate}}" (click)="confirmDelete()">
+      </button>
+
+    </div>
+  </div>
+</form>
+<app-loading-error [error]="error" [isFetching]="isFetching" [errorMessage]="errorMessage"></app-loading-error>
+

@@ -1,0 +1,18 @@
+    <p-menubar [model]="items" >
+      <ng-template pTemplate="start" >
+        <img src="assets/images/warehouse.svg" alt="storehouse-logo" height="50" class="p-mr-2" routerLink="/" style="cursor: pointer;">
+      </ng-template>
+      <ng-template pTemplate="end">
+          <span style="cursor: pointer;">
+            <a>
+              <img *ngIf="currentLanguage === 'el'" src="assets/images/gb.svg" alt="app-flag-en" height="15"
+                (click)=" changeLanguage('en')" pTooltip="{{'language.english' | translate}}" class="box shadow-2 border-round"/>
+              <img *ngIf="currentLanguage === 'en'" src="assets/images/gr.svg" alt="app-flag-el" height="15"
+                (click)="changeLanguage('el')" pTooltip="{{'language.greek' | translate}}" class="box shadow-2 border-round"/>
+            </a>
+          </span>
+      </ng-template>
+    </p-menubar>
+
+
+

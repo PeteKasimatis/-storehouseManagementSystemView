@@ -1,0 +1,46 @@
+<p-table
+  #table
+  [value]="values"
+  [paginator]="true"
+  [rows]="15"
+  [showCurrentPageReport]="true"
+  [rowsPerPageOptions]="[15,25,50]"
+  styleClass="p-datatable-striped p-datatable-gridlines"
+  [globalFilterFields]="filterFields">
+  <ng-template pTemplate="caption">
+    <div class="grid">
+      <div class="col-4">
+        <i class="text-xl m-0">{{captionTitle}}</i>
+      </div>
+      <div class="col-8">
+        <div style="text-align: center">
+          <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText size="50" placeholder="{{'sms.input.search.placeholder' | translate}}"
+              (input)="applyFilterGlobal($event)">
+          </span>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header" >
+    <tr>
+      <!-- align: "center", width: "10%", headerTitle: this.translate.instant('sms.general.index'), isSortable: false, colName: "id" -->
+      <th style="text-align: center" width=10% >{{'sms.general.index' | translate}}</th>
+      <th *ngFor="let column of columns" [style.text-align]="column.align" width={{column.width}} pSortableColumn="{{column.isSortable?column.colName :'' }}">
+        {{column.headerTitle}}
+        <p-sortIcon *ngIf="column.isSortable" field={{column.colName}}>
+        </p-sortIcon>
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowObject let-index ="rowIndex">
+    <tr>
+      <td style="text-align: center">{{index + 1}}</td>
+      <td *ngFor="let column of columns" [style.text-align]="column.align">{{rowObject[column.colName]}}</td>
+      <td *ngIf="showDetailsButton" style="text-align: center ;"><button pButton type="button" label="{{'sms.button.details' | translate}}"
+          (click)="onDetails(rowObject.id)"></button></td>
+    </tr>
+  </ng-template>
+</p-table>

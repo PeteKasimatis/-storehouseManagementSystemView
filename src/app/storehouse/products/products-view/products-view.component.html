@@ -1,0 +1,86 @@
+<form [formGroup]="productForm" (ngSubmit)="onSaveProduct()">
+  <div class="pkcard">
+    <div>
+      <div class="field">
+        <h2>{{(id>0? 'sms.products.edit': 'sms.products.new')| translate}}</h2>
+        <div class="field">
+          <label for="description">{{'sms.products.description' | translate}}</label>
+          <input id="description" pInputText class="inputfield" class="w-full md:w-5 border-round flex"
+            formControlName="description">
+          <app-print-error [control]='productForm.controls.description'></app-print-error>
+        </div>
+
+        <div class="field">
+          <label for="barcode">{{'sms.products.barcode' | translate}}</label>
+          <input id="barcode" pInputText class="inputfield" class="w-full md:w-5 border-round flex"
+            formControlName="barcode">
+          <app-print-error [control]='productForm.controls.barcode'></app-print-error>
+        </div>
+
+        <div class="field">
+          <label for="units">{{'sms.products.units' | translate}}</label>
+          <input id="units" pInputText class="inputfield" class="w-full md:w-5 border-round flex"
+            formControlName="units">
+          <app-print-error [control]='productForm.controls.units'></app-print-error>
+        </div>
+      </div>
+
+      <div class="card mt-2">
+        <div class="flex flex-row flex-wrap justify-content-start">
+          <button pButton class="p-button-primary mr-1" type="submit" label="{{(id > 0 ? 'sms.general.save': 'sms.general.create')| translate}}" [disabled]="!productForm.valid">
+          </button>
+          <button pButton *ngIf="!id" class="p-button-primary" type="button" label="{{'sms.general.clear' | translate}}" (click)="onCLear()">
+          </button>
+          <button  pButton *ngIf="id" class="p-button-danger" type="button" label="{{'sms.general.delete' | translate}}" (click)="confirmDelete()">
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
+<app-loading-error [error]="error" [isFetching]="isFetching" [errorMessage]="errorMessage"></app-loading-error>
+<!--
+  <div class="card">
+    <form [formGroup]="productForm" (ngSubmit)="onCreateProduct()">
+      <div class="p-fluid">
+        <div class="p-field p-grid">
+          <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Περιγραφή</label>
+          <div class="p-col-12 p-md-10">
+            <textarea
+              style="width: 100%; max-width: 100%;"
+              [rows]="1"
+              pInputTextarea
+              [autoResize]="true"
+              formControlName="description">
+            </textarea>
+            <app-print-error [control]='productForm.controls.description'></app-print-error>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Barcode</label>
+          <div class="p-col-12 p-md-10">
+            <input
+              type="text"
+              pInputText
+              style="width: 100%; max-width: 100%;"
+              formControlName="barcode"/>
+              <app-print-error [control]='productForm.controls.barcode'></app-print-error>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Μονάδα μέρτησης</label>
+          <div class="p-col-12 p-md-10">
+            <input
+              type="text"
+              pInputText
+              style="width: 100%; max-width: 100%;"
+              formControlName="units"/>
+              <app-print-error [control]='productForm.controls.units'></app-print-error>
+          </div>
+        </div>
+      </div>
+      <button pButton type="submit" label="Δημιουργία" [disabled]="!productForm.valid"></button>
+    </form>
+  </div>
+  <app-loading-error [error]="error" [isFetching]="isFetching" [errorMessage]="errorMessage"></app-loading-error> -->

@@ -1,0 +1,29 @@
+<div style=" text-align: center;">
+  <h5 style="margin: 0.5em 0 1em 0">Λίστα αποθεμάτων προϊόντος</h5>
+</div>
+<div>
+  <form [formGroup]="stockByBarcodeForm">
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-2">
+        <label>Barcode προϊόντος</label>
+      </div>
+      <div class="p-field p-col-4">
+        <p-dropdown formControlName="barcode" [options]="barcodeList"
+          placeholder="Επιλέξτε προϊόν"></p-dropdown>
+        <app-print-error [control]='stockByBarcodeForm.controls.barcode'></app-print-error>
+      </div>  
+      <div class="p-field p-col-4">
+      </div>
+      <div class="p-field p-col-2">
+        <button 
+          pButton 
+          label="Αναζήτηση" 
+          type="button" 
+          (click)="onGetStock()" 
+          [disabled]="stockByBarcodeForm.controls.barcode.value == null || stockByBarcodeForm.controls.barcode.value == '' "></button>
+      </div> 
+    </div>
+  </form>
+</div>
+<hr>
+<router-outlet ></router-outlet>

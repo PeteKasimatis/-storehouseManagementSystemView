@@ -1,0 +1,15 @@
+<p-blockUI [blocked]="blockedDocument"></p-blockUI>
+<div>
+  <app-menu></app-menu>
+  <div class="messagesCard">
+    <p-messages></p-messages>
+  </div>
+  <div>
+    <p-confirmDialog icon="pi pi-exclamation-triangle" acceptLabel="{{'sms.general.yes' | translate}}" rejectLabel="{{'sms.general.no' | translate}}"></p-confirmDialog>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+<footer class="footer">
+  <p>Storehouse Management System - Panagiotis Kasimatis 2022</p>
+</footer>

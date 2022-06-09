@@ -1,0 +1,86 @@
+<div style="text-align: center;">
+  <h4 style="margin: 0.5em 0 1em 0">Λεπτομέρειες αποθήκης</h4>
+  <hr>
+</div>
+
+<div class="card" *ngIf="!error && !isFetching">
+  <form [formGroup]="storehouseDetailsForm">
+    <div class="p-fluid">
+      <div class="p-field p-grid">
+        <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Id</label>
+        <div class="p-col-12 p-md-10">
+          <input type="text" pInputText formControlName="id">
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Περιγραφή</label>
+        <div class="p-col-12 p-md-10">
+          <textarea style="width: 100%; max-width: 100%;" [rows]="1" pInputTextarea [autoResize]="true"
+            formControlName="description"></textarea>
+          <app-print-error [control]='storehouseDetailsForm.controls.description'></app-print-error>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Ράφια</label>
+      </div>
+      <hr>
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-2">
+          <label>Id</label>
+        </div>
+        <div class="p-field p-col-8">
+          <label>Αναγνωριστικό</label>
+        </div>
+      </div>
+      <!-- <div formArrayName="shelves">
+        <div *ngFor="let shelf of shelves.controls; let i=index">
+          <div class="p-fluid p-formgrid p-grid" [formGroupName]="i">
+            <div class="p-field p-col-2">
+              <input type="text" pInputText formControlName="id">
+            </div>
+            <div class="p-field p-col-7">
+              <input type="text" pInputText formControlName="identifier">
+              <app-print-error [control]='shelf.controls.identifier'></app-print-error>
+            </div>
+            <div class="p-field p-col-2">
+              <button [disabled]="shelf.controls.id.value == ''" pButton type="button" label="Λεπτομέρειες"
+                [disabled]="" (click)="onShelfDetails(shelf.controls.identifier.value)"></button>
+            </div>
+            <div class="p-field p-col-1">
+              <button [disabled]="shelf.controls.id.value != ''" pButton type="button" class="p-button-danger"
+                icon="pi pi-times" (click)="removeShelf(i)"></button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </form>
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-3">
+      <button pButton type="button" label="Προσθήκη Ραφιού" (click)="onAddShelf()"></button>
+    </div>
+  </div>
+  <br>
+  <div class="p-grid">
+    <div class="p-col-2">
+      <button
+        pButton
+        type="button"
+        label="Ενημέρωση"
+        [disabled]="!storehouseDetailsForm.valid"
+        (click)="onUpdateStorehouse()"></button>
+    </div>
+    <div class="p-col-2">
+      <button
+        pButton
+        class="p-button-danger"
+        type="button"
+        label="Διαγραφή"
+        (click)="confirm()"></button>
+    </div>
+  </div>
+</div>
+<br>
+<app-loading-error [error]="error" [isFetching]="isFetching" [errorMessage]="errorMessage"></app-loading-error>
+
+

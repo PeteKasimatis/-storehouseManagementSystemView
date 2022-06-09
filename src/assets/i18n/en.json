@@ -1,0 +1,62 @@
+{
+  "sms.menu.storehouses": "Storehouses",
+  "sms.menu.products": "Products",
+  "sms.menu.import_receipts": "Import receipts",
+  "sms.menu.export_receipts": "Export receipts",
+  "sms.menu.stocκ": "Stock",
+  "sms.menu.stockAll": "All stock",
+  "sms.menu.stockByShelf": "Stock on shelf",
+  "sms.menu.stockByProduct": "Stock for product",
+  "sms.menu.stockByDate": "Stock for date",
+  "sms.menu.create": "Create",
+  "sms.menu.show_all": "Show all",
+
+  "sms.general.yes": "Yes",
+  "sms.general.no": "No",
+  "sms.general.index": "#",
+  "sms.general.id": "ID",
+  "sms.general.description": "Description",
+  "sms.general.date": "Date",
+  "sms.general.recipient": "Recipient",
+  "sms.general.reason": "Export Reason",
+  "sms.general.sender": "Sender",
+  "sms.general.clear": "Clear",
+  "sms.general.create": "Create",
+  "sms.general.save": "Save",
+  "sms.general.delete": "Delete",
+  "sms.general.details": "Details",
+
+  "sms.storehouses.list": "Storehouse list",
+  "sms.storehouses.new": "New Storehouse",
+  "sms.storehouses.edit": "Edit Storehouse",
+  "sms.storehouses.name": "Storehouse Name",
+  "sms.storehouses.addShelf": "Add Shelf",
+  "sms.storehouses.identifier": "Shelf Identifier",
+
+  "sms.shelves.details": "Shelf details",
+  "sms.shelves.identifier": "Shelf description",
+
+  "sms.products.list": "Product list",
+  "sms.products.new": "New Product",
+  "sms.products.edit": "Edit Product",
+  "sms.products.description": "Description",
+  "sms.products.barcode": "Barcode",
+  "sms.products.units": "Units",
+
+  "sms.export-receipts.list": "Export Receipt list",
+  "sms.import-receipts.list": "Import Receipt list",
+
+  "sms.input.search.placeholder": "Search keyword",
+  "sms.button.details": "Details",
+
+  "sms.error": "An Error Occured!",
+
+  "sms.message.saveSuccess": "Save successful",
+  "sms.message.deleteSuccess": "Delete successful",
+
+  "sms.confirm.message" : "Are you sure you want to delete?",
+  "sms.confirm.header" : "Confirmation",
+
+  "language.english": "English",
+  "language.greek": "Ελληνικά"
+}

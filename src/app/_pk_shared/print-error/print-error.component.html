@@ -1,0 +1,5 @@
+<div *ngIf="control && control.errors && (control.dirty || control.touched)">
+  <small  class="p-error" *ngIf="control.errors.required">This field is required</small>
+  <small  class="p-error" *ngIf="control.errors.maxlength">Max 45 characters</small>
+  <small  class="p-error" *ngIf="control.errors.pattern">Quantity must be a positive number</small>
+</div>

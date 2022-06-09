@@ -1,0 +1,38 @@
+<div style=" text-align: center;">
+  <h5 style="margin: 0.5em 0 1em 0">Λίστα αποθεμάτων προϊόντος ανά ημερομηνία</h5>
+</div>
+<form [formGroup]="stockByDateForm">
+  <div>
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-2">
+        <label>Barcode προϊόντος</label>
+      </div>
+      <div class="p-field p-col-4">
+        <p-dropdown formControlName="barcode" [options]="barcodeList"
+          placeholder="Επιλέξτε προϊόν"></p-dropdown>
+        <app-print-error [control]='stockByDateForm.controls.barcode'></app-print-error>
+      </div>  
+    </div>
+  </div>
+  <div>
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-2">
+        <label>Ημερομηνία</label>
+      </div>
+      <div class="p-field p-col-3">
+        <p-calendar formControlName="date" dataType="string" [showIcon]="true" dateFormat="dd-mm-yy"></p-calendar>
+      </div>
+      <div class="p-field p-col-5">
+      </div>
+      <div class="p-field p-col-2">
+        <button 
+          pButton 
+          label="Αναζήτηση" 
+          type="button" 
+          (click)='onGetStock()'
+          [disabled]="stockByDateForm.controls.barcode.value == '' || stockByDateForm.controls.date.value == null "></button>
+      </div>
+    </div>
+  </div>
+</form>
+<router-outlet></router-outlet>

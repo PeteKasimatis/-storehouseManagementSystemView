@@ -1,0 +1,99 @@
+<div style="text-align: center;">
+  <h4 style="margin: 0.5em 0 1em 0">Δημιουργία δελτίου εισαγωγής</h4>
+  <hr>
+</div>
+
+<div class="card">
+  <form [formGroup]="entryReceiptCreateForm" (ngSubmit)="onCreateEntryReceipt()">
+    <div class="p-fluid">
+      <div class="p-field p-grid">
+        <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Ημερομηνία</label>
+        <div class="p-col-12 p-md-10">
+          <textarea style="width: 100%; max-width: 100%;" [rows]="1" pInputTextarea [autoResize]="true"
+            formControlName="dateOfEntry"></textarea>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Περιγραφή</label>
+        <div class="p-col-12 p-md-10">
+          <textarea style="width: 100%; max-width: 100%;" [rows]="1" pInputTextarea [autoResize]="true"
+            formControlName="description"></textarea>
+          <app-print-error [control]='entryReceiptCreateForm.controls.description'></app-print-error>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Παραλαβών</label>
+        <div class="p-col-12 p-md-10">
+          <textarea style="width: 100%; max-width: 100%;" [rows]="1" pInputTextarea [autoResize]="true"
+            formControlName="recipient"></textarea>
+          <app-print-error [control]='entryReceiptCreateForm.controls.recipient'></app-print-error>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Καταχωρήσεις</label>
+      </div>
+      <hr>
+      <!-- registrations -->
+      <div class="p-fluid">
+        <div formArrayName="entryRegistrationDTOList">
+          <div *ngFor="let entryRegistration of entryRegistrationDTOList['controls']; let i=index">
+            <div [formGroupName]="i">
+              <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-3">
+                  <label>Ποσότητα</label>
+                </div>
+                <div class="p-field p-col-9">
+                  <input type="text" pInputText formControlName="quantity">
+                  <app-print-error [control]="entryRegistration['quantity']"></app-print-error>
+                </div>
+              </div>
+              <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-3">
+                  <label>Barcode Προϊόντος</label>
+                </div>
+                <div class="p-field p-col-9">
+                  <p-dropdown formControlName="productBarcode" [options]="productBarcodeList"
+                    placeholder="Επιλέξτε προϊόν" [showClear]="true"></p-dropdown>
+                  <app-print-error [control]="entryRegistration['productBarcode']"></app-print-error>
+                </div>
+              </div>
+              <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-3">
+                  <label>Αναγνωριστικό ραφιού</label>
+                </div>
+                <div class="p-field p-col-9">
+                  <p-dropdown formControlName="shelfIdentifier" [options]="shelveIdentifierList"
+                    placeholder="Επιλέξτε ράφι" [showClear]="true"></p-dropdown>
+                  <app-print-error [control]="entryRegistration['shelfIdentifier']"></app-print-error>
+                </div>
+              </div>
+              <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-3">
+                  <button pButton type="button" label="Διαγραφή" class="p-button-danger"
+                    (click)="removeEntryRegistration(i)"></button>
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="p-field p-col-4">
+            <button pButton type="button" label="Προσθήκη Καταχώρησης" (click)="onAddEntryRegistration()"></button>
+          </div>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col-2">
+          <button pButton class="p-button-primary" type="submit" label="Δημιουργία"
+            [disabled]="!entryReceiptCreateForm.valid"></button>
+        </div>
+        <div class="p-col-2">
+          <button pButton class="p-button-primary" type="button" label="Καθαρισμός" (click)="onCLear()"></button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<br>
+<app-loading-error [error]="error" [isFetching]="isFetching" [errorMessage]="errorMessage"></app-loading-error>

@@ -1,0 +1,13 @@
+<div>
+  <app-pktable
+    [values]="productsList"
+    [filterFields]="filterFields"
+    [captionTitle]="captionTitle"
+    [columns]="columns"
+    [showDetailsButton]="true">
+  </app-pktable>
+</div>
+<app-loading-error [error]="error" [isFetching]="isFetching" [errorMessage]="errorMessage"></app-loading-error>
+
+
+

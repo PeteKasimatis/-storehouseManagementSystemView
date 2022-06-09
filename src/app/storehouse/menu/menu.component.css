@@ -1,0 +1,23 @@
+/* :host ::ng-deep .menubar.p-menubar {
+    background-color: #43578a;
+
+}
+:host ::ng-deep .p-menuitem-text{
+  font-size: 1rem;
+}
+:host ::ng-deep .p-menu-list{
+  background-color: #43578a;
+}
+:host ::ng-deep-menuitem{
+  background-color: #43578a;
+
+} */
+/* :host ::ng-deep-menuitem-text{
+
+} */
+/* :host ::ng-deep-menuitem-icon{
+
+} */
+/* :host ::ng-deep-submenu-icon{
+
+} */

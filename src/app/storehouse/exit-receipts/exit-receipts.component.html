@@ -1,0 +1,11 @@
+<div>
+  <app-pktable
+    [values]="exitReceiptList"
+    [filterFields]="filterFields"
+    [captionTitle]="captionTitle"
+    [columns]="columns"
+    [showDetailsButton]="true">
+  </app-pktable>
+</div>
+<br>
+<app-loading-error [error]="error" [isFetching]="isFetching" [errorMessage]="errorMessage"></app-loading-error>

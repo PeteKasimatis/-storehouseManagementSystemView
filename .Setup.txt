@@ -1,0 +1,6 @@
+npm install primeng --save
+npm install primeicons --save
+npm install primeflex --save
+npm i @ngx-translate/core --save
+npm i @ngx-translate/http-loader --save
+npm install @angular/cdk --save

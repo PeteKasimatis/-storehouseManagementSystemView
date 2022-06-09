@@ -1,0 +1,62 @@
+<div style="text-align: center;">
+  <h4 style="margin: 0.5em 0 1em 0">Λεπτομέρειες προϊόντος</h4>
+  <hr>
+</div>
+<div *ngIf="!error && !isFetching">
+  <div class="card">
+    <form [formGroup]="productDetailsForm" (ngSubmit)="onUpdate()">
+      <div class="p-fluid">
+        <div class="p-field p-grid">
+          <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Id</label>
+          <div class="p-col-12 p-md-10">
+            <input type="text" pInputText formControlName="id">
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Περιγραφή</label>
+          <div class="p-col-12 p-md-10">
+            <textarea style="width: 100%; max-width: 100%;" [rows]="1" pInputTextarea [autoResize]="true"
+              (input)="onUpdateEnabled()" formControlName="description"></textarea>
+              <app-print-error [control]='productDetailsForm.controls.description'></app-print-error>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Barcode</label>
+          <div class="p-col-12 p-md-10">
+            <input type="text" pInputText (input)="onUpdateEnabled()" formControlName="barcode">
+            <app-print-error [control]='productDetailsForm.controls.barcode'></app-print-error>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Μονάδα μέτρησης</label>
+          <div class="p-col-12 p-md-10">
+            <input type="text" pInputText (input)="onUpdateEnabled()" formControlName="units">
+            <app-print-error [control]='productDetailsForm.controls.units'></app-print-error>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="p-grid">
+        <div class="p-col-2">
+          <button
+            pButton
+            type="submit"
+            label="Ενημέρωση"
+            [disabled]="!productDetailsForm.valid || updateDisabled"></button>
+        </div>
+        <div class="p-col-2">
+          <button
+            pButton
+            class="p-button-danger"
+            type="button"
+            label="Διαγραφή"
+            (click)="confirm()"></button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <button pButton type="button" label="Προβολή αποθεμάτων" (click)="onShowStock()"></button>
+</div>
+<br>
+<app-loading-error [error]="error" [isFetching]="isFetching" [errorMessage]="errorMessage"></app-loading-error>
+

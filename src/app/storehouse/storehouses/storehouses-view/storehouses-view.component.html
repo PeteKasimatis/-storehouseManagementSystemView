@@ -1,0 +1,53 @@
+<form [formGroup]="storehouseForm" (ngSubmit)="onSaveStorehouse()">
+  <div class="pkcard">
+    <div>
+      <div class="field">
+        <h2>{{(id>0? 'sms.storehouses.edit': 'sms.storehouses.new')| translate}}</h2>
+        <label for="description">{{'sms.storehouses.name' | translate}}</label>
+        <input id="description" pInputText class="inputfield" class="w-full md:w-5 border-round flex"
+          formControlName="description">
+        <app-print-error [control]='storehouseForm.controls.description'></app-print-error>
+      </div>
+    </div>
+
+<!-- SHELVES -->
+    <div>
+      <div class="grid">
+        <div class="col-12 mb-1">
+          <button pButton type="button" label="{{'sms.storehouses.addShelf' | translate}}" (click)="onAddShelf()"></button>
+        </div>
+      </div>
+      <div formArrayName="shelves">
+        <div *ngFor="let shelf of shelves.controls; let i=index">
+          <div class="field grid" [formGroupName]="i">
+            <label for="identifier" class="col-12">{{'sms.storehouses.identifier' | translate}}</label>
+            <div class="col-6 sm:col-7 md:col-8 xl:col-9">
+              <input id="identifier" class="inputfield w-full" type="text" pInputText formControlName="identifier">
+              <app-print-error [control]="shelf.get('identifier')"></app-print-error>
+            </div>
+            <div class="col-fixed" style="width:150px">
+              <button [disabled]="!shelf.get('id')" pButton type="button" label="{{'sms.general.details' | translate}}"
+              [disabled]="" (click)="onShelfDetails(shelf)"></button>
+            </div>
+            <div class="col-2 sm:col-1 md:col-1 xl:col-1">
+              <button pButton type="button" icon="pi pi-times" class="p-button-danger" (click)="removeShelf(i)"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-2">
+        <div class="flex flex-row flex-wrap justify-content-start">
+          <button pButton class="p-button-primary mr-1" type="submit" label="{{(id > 0 ? 'sms.general.save': 'sms.general.create')| translate}}" [disabled]="!storehouseForm.valid">
+          </button>
+          <button pButton *ngIf="!id" class="p-button-primary" type="button" label="{{'sms.general.clear' | translate}}" (click)="onCLear()">
+          </button>
+          <button  pButton *ngIf="id" class="p-button-danger" type="button" label="{{'sms.general.delete' | translate}}" (click)="confirmDelete()">
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
+<app-loading-error [error]="error" [isFetching]="isFetching" [errorMessage]="errorMessage"></app-loading-error>

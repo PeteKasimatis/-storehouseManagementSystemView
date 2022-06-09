@@ -1,0 +1,43 @@
+<div *ngIf="active">
+  <div style="text-align: center;">
+    <h4 style="margin: 0.5em 0 1em 0">Ανάκτηση αποθεμάτων</h4>
+    <hr>
+  </div>
+  <div class="p-grid">
+    <div class="p-col">
+      <button 
+        pButton 
+        type="button" 
+        label="Προβολή όλων των αποθεμάτων" 
+        (click)="deactivate()"
+        routerLink="/stock/all"></button>
+    </div>
+    <div class="p-col">
+      <button 
+        pButton 
+        type="button" 
+        label="Προβολή αποθεμάτων σε ράφι" 
+        (click)="deactivate()"
+        routerLink="/stock/identifier"></button>
+    </div>
+    <div class="p-col">
+      <button 
+        pButton 
+        type="button" 
+        label="Προβολή αποθεμάτων προϊόντος" 
+        (click)="deactivate()"
+        routerLink="/stock/barcode"></button>
+    </div>
+    <div class="p-col">
+      <button 
+        pButton 
+        type="button" 
+        label="Προβολή αποθεμάτων προϊόντος ανά ημερομηνία"
+        (click)="deactivate()" 
+        routerLink="/stock/date"></button>
+    </div>
+  </div>
+</div>
+<br>
+<hr> 
+<router-outlet></router-outlet>
